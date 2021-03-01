@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "works",
+  "info": {
+    "name": "Work"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "tait_tunniste": {
+      "type": "string"
+    },
+    "tuotenumero": {
+      "type": "integer"
+    },
+    "teosnimi": {
+      "type": "string"
+    },
+    "tunniste": {
+      "type": "string"
+    },
+    "hinta": {
+      "type": "integer"
+    },
+    "korkeus": {
+      "type": "integer"
+    },
+    "leveys": {
+      "type": "integer"
+    },
+    "tekniikka": {
+      "type": "string"
+    },
+    "valmistumisvuosi": {
+      "type": "integer"
+    },
+    "vedosmaara": {
+      "type": "integer"
+    }
+  }
+}

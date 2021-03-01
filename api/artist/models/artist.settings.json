@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "artists",
+  "info": {
+    "name": "artist",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "etunimi": {
+      "type": "string"
+    },
+    "sukunimi": {
+      "type": "string"
+    },
+    "syntymavuosi": {
+      "type": "integer"
+    },
+    "esittely": {
+      "type": "text"
+    },
+    "tunniste": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    }
+  }
+}

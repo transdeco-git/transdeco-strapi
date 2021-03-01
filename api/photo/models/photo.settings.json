@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "photos",
+  "info": {
+    "name": "Photo"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "tiedostonimi": {
+      "type": "string"
+    },
+    "kuvanimi": {
+      "type": "string"
+    },
+    "kuvataan_uudelleen": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}
