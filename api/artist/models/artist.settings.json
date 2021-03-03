@@ -11,12 +11,6 @@
     "draftAndPublish": true
   },
   "attributes": {
-    "etunimi": {
-      "type": "string"
-    },
-    "sukunimi": {
-      "type": "string"
-    },
     "syntymavuosi": {
       "type": "integer"
     },
@@ -27,6 +21,9 @@
       "type": "string",
       "unique": true,
       "required": true
+    },
+    "nimi": {
+      "type": "string"
     }
   }
 }
