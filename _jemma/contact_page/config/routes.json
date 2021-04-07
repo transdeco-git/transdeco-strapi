@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/contact_page",
+      "handler": "yhteydenotot.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/contact_page/count",
+      "handler": "yhteydenotot.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/contact_page/:id",
+      "handler": "yhteydenotot.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/contact_page",
+      "handler": "yhteydenotot.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/contact_page/:id",
+      "handler": "yhteydenotot.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/contact_page/:id",
+      "handler": "yhteydenotot.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

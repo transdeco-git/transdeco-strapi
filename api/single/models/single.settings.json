@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "singles",
+  "info": {
+    "name": "single"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "otsikko": {
+      "type": "string"
+    },
+    "teksti": {
+      "type": "richtext"
+    },
+    "tunniste": {
+      "type": "string"
+    }
+  }
+}

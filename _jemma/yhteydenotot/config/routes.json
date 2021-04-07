@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/yhteydenottosivus",
+      "handler": "yhteydenottosivu.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/yhteydenottosivus/count",
+      "handler": "yhteydenottosivu.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/yhteydenottosivus/:id",
+      "handler": "yhteydenottosivu.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/yhteydenottosivus",
+      "handler": "yhteydenottosivu.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/yhteydenottosivus/:id",
+      "handler": "yhteydenottosivu.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/yhteydenottosivus/:id",
+      "handler": "yhteydenottosivu.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

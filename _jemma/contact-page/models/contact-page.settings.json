@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "contact_page",
+  "info": {
+    "name": "contact_page"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "otsikko": {
+      "type": "string"
+    },
+    "teksti": {
+      "type": "richtext"
+    },
+    "tunniste": {
+      "type": "string"
+    }
+  }
+}

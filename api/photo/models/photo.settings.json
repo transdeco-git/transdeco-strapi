@@ -2,11 +2,13 @@
   "kind": "collectionType",
   "collectionName": "photos",
   "info": {
-    "name": "Photo"
+    "name": "photo",
+    "description": ""
   },
   "options": {
     "increments": true,
-    "timestamps": true
+    "timestamps": true,
+    "draftAndPublish": false
   },
   "attributes": {
     "tiedostonimi": {

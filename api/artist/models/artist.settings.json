@@ -22,7 +22,10 @@
       "unique": true,
       "required": true
     },
-    "nimi": {
+    "etunimi": {
+      "type": "string"
+    },
+    "sukunimi": {
       "type": "string"
     }
   }

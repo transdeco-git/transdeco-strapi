@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/4-yhteydenotots",
+      "handler": "4-yhteydenotot.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/4-yhteydenotots/count",
+      "handler": "4-yhteydenotot.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/4-yhteydenotots/:id",
+      "handler": "4-yhteydenotot.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/4-yhteydenotots",
+      "handler": "4-yhteydenotot.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/4-yhteydenotots/:id",
+      "handler": "4-yhteydenotot.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/4-yhteydenotots/:id",
+      "handler": "4-yhteydenotot.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
