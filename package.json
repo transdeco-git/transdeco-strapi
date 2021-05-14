@@ -11,6 +11,7 @@
   },
   "devDependencies": {},
   "dependencies": {
+    "dotenv": "^9.0.2",
     "shopify-api-node": "^3.6.12",
     "strapi": "3.6.1",
     "strapi-admin": "3.6.1",

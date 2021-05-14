@@ -79,6 +79,7 @@ $RECYCLE.BIN/
 .idea
 nbproject
 .vscode/
+.env
 
 
 ############################
@@ -133,3 +134,4 @@ packages/strapi-generate-new/files/public/
 ############################
 
 front-workspace.code-workspace
+
