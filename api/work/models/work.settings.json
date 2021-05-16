@@ -49,6 +49,9 @@
       ],
       "plugin": "upload",
       "required": false
+    },
+    "kuvatiedosto": {
+      "type": "string"
     }
   }
 }
