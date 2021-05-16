@@ -27,6 +27,9 @@
     },
     "sukunimi": {
       "type": "string"
+    },
+    "kuvatiedosto": {
+      "type": "string"
     }
   }
 }

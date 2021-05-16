@@ -52,6 +52,9 @@
     },
     "kuvatiedosto": {
       "type": "string"
+    },
+    "shopifyID": {
+      "type": "string"
     }
   }
 }
