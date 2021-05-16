@@ -3,9 +3,9 @@ const { sanitizeEntity } = require('strapi-utils');
 const Shopify = require('shopify-api-node');
 
 const shopify = new Shopify({
-  shopName: SHOPNAME,
-  apiKey: APIKEY,
-  password: PASSWORD
+  shopName: SHOPIFY_SHOPNAME,
+  apiKey: SHOPIFY_APIKEY,
+  password: SHOPIFY_PASSWORD
 });
 
 module.exports = {
@@ -16,3 +16,4 @@ module.exports = {
     return sanitizeEntity(entity, { model: strapi.models.product });
   },
 };
+
