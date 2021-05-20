@@ -3,9 +3,9 @@ const { sanitizeEntity } = require('strapi-utils');
 const Shopify = require('shopify-api-node');
 
 const shopify = new Shopify({
-  shopName: SHOPIFY_SHOPNAME,
-  apiKey: SHOPIFY_APIKEY,
-  password: SHOPIFY_PASSWORD
+  shopName: process.env.SHOPIFY_SHOPNAME,
+  apiKey: process.env.SHOPIFY_APIKEY,
+  password: process.env.SHOPIFY_PASSWORD
 });
 
 module.exports = {
