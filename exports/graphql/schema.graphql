@@ -51,6 +51,7 @@ type Artist {
   tunniste: String!
   etunimi: String
   sukunimi: String
+  kuvatiedosto: String
   published_at: DateTime
 }
 
@@ -95,6 +96,7 @@ type ArtistGroupBy {
   tunniste: [ArtistConnectionTunniste]
   etunimi: [ArtistConnectionEtunimi]
   sukunimi: [ArtistConnectionSukunimi]
+  kuvatiedosto: [ArtistConnectionKuvatiedosto]
   published_at: [ArtistConnectionPublished_at]
 }
 
@@ -143,6 +145,11 @@ type ArtistConnectionSukunimi {
   connection: ArtistConnection
 }
 
+type ArtistConnectionKuvatiedosto {
+  key: String
+  connection: ArtistConnection
+}
+
 type ArtistConnectionPublished_at {
   key: DateTime
   connection: ArtistConnection
@@ -154,6 +161,7 @@ input ArtistInput {
   tunniste: String!
   etunimi: String
   sukunimi: String
+  kuvatiedosto: String
   published_at: DateTime
   created_by: ID
   updated_by: ID
@@ -165,6 +173,7 @@ input editArtistInput {
   tunniste: String
   etunimi: String
   sukunimi: String
+  kuvatiedosto: String
   published_at: DateTime
   created_by: ID
   updated_by: ID
@@ -677,6 +686,9 @@ type Work {
   vedosmaara: Int
   kuvatiedosto: String
   shopifyID: String
+  arkistoitu: Boolean
+  merkinta: String
+  saatavuus: Int
   published_at: DateTime
   kuva(sort: String, limit: Int, start: Int, where: JSON): [UploadFile]
 }
@@ -703,6 +715,7 @@ type WorkAggregatorSum {
   leveys: Float
   valmistumisvuosi: Float
   vedosmaara: Float
+  saatavuus: Float
 }
 
 type WorkAggregatorAvg {
@@ -712,6 +725,7 @@ type WorkAggregatorAvg {
   leveys: Float
   valmistumisvuosi: Float
   vedosmaara: Float
+  saatavuus: Float
 }
 
 type WorkAggregatorMin {
@@ -721,6 +735,7 @@ type WorkAggregatorMin {
   leveys: Float
   valmistumisvuosi: Float
   vedosmaara: Float
+  saatavuus: Float
 }
 
 type WorkAggregatorMax {
@@ -730,6 +745,7 @@ type WorkAggregatorMax {
   leveys: Float
   valmistumisvuosi: Float
   vedosmaara: Float
+  saatavuus: Float
 }
 
 type WorkGroupBy {
@@ -749,6 +765,9 @@ type WorkGroupBy {
   vedosmaara: [WorkConnectionVedosmaara]
   kuvatiedosto: [WorkConnectionKuvatiedosto]
   shopifyID: [WorkConnectionShopifyID]
+  arkistoitu: [WorkConnectionArkistoitu]
+  merkinta: [WorkConnectionMerkinta]
+  saatavuus: [WorkConnectionSaatavuus]
   published_at: [WorkConnectionPublished_at]
 }
 
@@ -832,6 +851,21 @@ type WorkConnectionShopifyID {
   connection: WorkConnection
 }
 
+type WorkConnectionArkistoitu {
+  key: Boolean
+  connection: WorkConnection
+}
+
+type WorkConnectionMerkinta {
+  key: String
+  connection: WorkConnection
+}
+
+type WorkConnectionSaatavuus {
+  key: Int
+  connection: WorkConnection
+}
+
 type WorkConnectionPublished_at {
   key: DateTime
   connection: WorkConnection
@@ -851,6 +885,9 @@ input WorkInput {
   kuva: [ID]
   kuvatiedosto: String
   shopifyID: String
+  arkistoitu: Boolean
+  merkinta: String
+  saatavuus: Int
   published_at: DateTime
   created_by: ID
   updated_by: ID
@@ -870,6 +907,9 @@ input editWorkInput {
   kuva: [ID]
   kuvatiedosto: String
   shopifyID: String
+  arkistoitu: Boolean
+  merkinta: String
+  saatavuus: Int
   published_at: DateTime
   created_by: ID
   updated_by: ID
@@ -1370,7 +1410,7 @@ type deleteUserPayload {
   user: UsersPermissionsUser
 }
 
-union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | Artist | ArtistConnection | ArtistAggregator | ArtistAggregatorSum | ArtistAggregatorAvg | ArtistAggregatorMin | ArtistAggregatorMax | ArtistGroupBy | ArtistConnectionId | ArtistConnection_id | ArtistConnectionCreatedAt | ArtistConnectionUpdatedAt | ArtistConnectionSyntymavuosi | ArtistConnectionEsittely | ArtistConnectionTunniste | ArtistConnectionEtunimi | ArtistConnectionSukunimi | ArtistConnectionPublished_at | createArtistPayload | updateArtistPayload | deleteArtistPayload | Contact | ContactConnection | ContactAggregator | ContactGroupBy | ContactConnectionId | ContactConnection_id | ContactConnectionCreatedAt | ContactConnectionUpdatedAt | ContactConnectionOtsikko | ContactConnectionTeksti | ContactConnectionTunniste | ContactConnectionPublished_at | createContactPayload | updateContactPayload | deleteContactPayload | Photo | PhotoConnection | PhotoAggregator | PhotoGroupBy | PhotoConnectionId | PhotoConnection_id | PhotoConnectionCreatedAt | PhotoConnectionUpdatedAt | PhotoConnectionTiedostonimi | PhotoConnectionKuvanimi | PhotoConnectionKuvataan_uudelleen | createPhotoPayload | updatePhotoPayload | deletePhotoPayload | Product | ProductConnection | ProductAggregator | ProductGroupBy | ProductConnectionId | ProductConnection_id | ProductConnectionCreatedAt | ProductConnectionUpdatedAt | ProductConnectionTitle | ProductConnectionDescription | ProductConnectionPicture | ProductConnectionShopifyID | ProductConnectionPublished_at | createProductPayload | updateProductPayload | deleteProductPayload | Single | SingleConnection | SingleAggregator | SingleGroupBy | SingleConnectionId | SingleConnection_id | SingleConnectionCreatedAt | SingleConnectionUpdatedAt | SingleConnectionOtsikko | SingleConnectionTeksti | SingleConnectionTunniste | SingleConnectionPublished_at | createSinglePayload | updateSinglePayload | deleteSinglePayload | Work | WorkConnection | WorkAggregator | WorkAggregatorSum | WorkAggregatorAvg | WorkAggregatorMin | WorkAggregatorMax | WorkGroupBy | WorkConnectionId | WorkConnection_id | WorkConnectionCreatedAt | WorkConnectionUpdatedAt | WorkConnectionTait_tunniste | WorkConnectionTuotenumero | WorkConnectionTeosnimi | WorkConnectionTunniste | WorkConnectionHinta | WorkConnectionKorkeus | WorkConnectionLeveys | WorkConnectionTekniikka | WorkConnectionValmistumisvuosi | WorkConnectionVedosmaara | WorkConnectionKuvatiedosto | WorkConnectionShopifyID | WorkConnectionPublished_at | createWorkPayload | updateWorkPayload | deleteWorkPayload | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnection_id | UploadFileConnectionCreatedAt | UploadFileConnectionUpdatedAt | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_metadata | deleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnection_id | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnection_id | UsersPermissionsUserConnectionCreatedAt | UsersPermissionsUserConnectionUpdatedAt | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | createUserPayload | updateUserPayload | deleteUserPayload
+union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | Artist | ArtistConnection | ArtistAggregator | ArtistAggregatorSum | ArtistAggregatorAvg | ArtistAggregatorMin | ArtistAggregatorMax | ArtistGroupBy | ArtistConnectionId | ArtistConnection_id | ArtistConnectionCreatedAt | ArtistConnectionUpdatedAt | ArtistConnectionSyntymavuosi | ArtistConnectionEsittely | ArtistConnectionTunniste | ArtistConnectionEtunimi | ArtistConnectionSukunimi | ArtistConnectionKuvatiedosto | ArtistConnectionPublished_at | createArtistPayload | updateArtistPayload | deleteArtistPayload | Contact | ContactConnection | ContactAggregator | ContactGroupBy | ContactConnectionId | ContactConnection_id | ContactConnectionCreatedAt | ContactConnectionUpdatedAt | ContactConnectionOtsikko | ContactConnectionTeksti | ContactConnectionTunniste | ContactConnectionPublished_at | createContactPayload | updateContactPayload | deleteContactPayload | Photo | PhotoConnection | PhotoAggregator | PhotoGroupBy | PhotoConnectionId | PhotoConnection_id | PhotoConnectionCreatedAt | PhotoConnectionUpdatedAt | PhotoConnectionTiedostonimi | PhotoConnectionKuvanimi | PhotoConnectionKuvataan_uudelleen | createPhotoPayload | updatePhotoPayload | deletePhotoPayload | Product | ProductConnection | ProductAggregator | ProductGroupBy | ProductConnectionId | ProductConnection_id | ProductConnectionCreatedAt | ProductConnectionUpdatedAt | ProductConnectionTitle | ProductConnectionDescription | ProductConnectionPicture | ProductConnectionShopifyID | ProductConnectionPublished_at | createProductPayload | updateProductPayload | deleteProductPayload | Single | SingleConnection | SingleAggregator | SingleGroupBy | SingleConnectionId | SingleConnection_id | SingleConnectionCreatedAt | SingleConnectionUpdatedAt | SingleConnectionOtsikko | SingleConnectionTeksti | SingleConnectionTunniste | SingleConnectionPublished_at | createSinglePayload | updateSinglePayload | deleteSinglePayload | Work | WorkConnection | WorkAggregator | WorkAggregatorSum | WorkAggregatorAvg | WorkAggregatorMin | WorkAggregatorMax | WorkGroupBy | WorkConnectionId | WorkConnection_id | WorkConnectionCreatedAt | WorkConnectionUpdatedAt | WorkConnectionTait_tunniste | WorkConnectionTuotenumero | WorkConnectionTeosnimi | WorkConnectionTunniste | WorkConnectionHinta | WorkConnectionKorkeus | WorkConnectionLeveys | WorkConnectionTekniikka | WorkConnectionValmistumisvuosi | WorkConnectionVedosmaara | WorkConnectionKuvatiedosto | WorkConnectionShopifyID | WorkConnectionArkistoitu | WorkConnectionMerkinta | WorkConnectionSaatavuus | WorkConnectionPublished_at | createWorkPayload | updateWorkPayload | deleteWorkPayload | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnection_id | UploadFileConnectionCreatedAt | UploadFileConnectionUpdatedAt | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_metadata | deleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnection_id | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnection_id | UsersPermissionsUserConnectionCreatedAt | UsersPermissionsUserConnectionUpdatedAt | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | createUserPayload | updateUserPayload | deleteUserPayload
 
 input InputID {
   id: ID!

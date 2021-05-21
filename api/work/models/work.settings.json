@@ -48,13 +48,24 @@
         "images"
       ],
       "plugin": "upload",
-      "required": false
+      "required": false,
+      "pluginOptions": {}
     },
     "kuvatiedosto": {
       "type": "string"
     },
     "shopifyID": {
       "type": "string"
+    },
+    "arkistoitu": {
+      "type": "boolean",
+      "default": false
+    },
+    "merkinta": {
+      "type": "string"
+    },
+    "saatavuus": {
+      "type": "integer"
     }
   }
 }
