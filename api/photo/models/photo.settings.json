@@ -11,15 +11,39 @@
     "draftAndPublish": false
   },
   "attributes": {
-    "tiedostonimi": {
+    "kamera": {
       "type": "string"
     },
-    "kuvanimi": {
+    "kuvatiedosto": {
       "type": "string"
     },
     "kuvataan_uudelleen": {
       "type": "boolean",
       "default": false
+    },
+    "kommentti": {
+      "type": "string"
+    },
+    "tait_tuniste": {
+      "model": "artist"
+    },
+    "teosnimi": {
+      "type": "string"
+    },
+    "kuva": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "kuvauspvm": {
+      "type": "date"
     }
   }
 }
